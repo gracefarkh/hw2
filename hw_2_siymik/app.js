@@ -36,8 +36,7 @@ btnStart.addEventListener('click',()=>{
         moveBlock()
     }
 })
-
-// 3 
+//3 задание
 function MultiplyNumber (n){
     return function Mult(){
         let newN =n**2
@@ -45,35 +44,45 @@ function MultiplyNumber (n){
     }
 }
 const n = MultiplyNumber(10)
-n()
 
-// 2
+// 2 задание
 const newStart = document.querySelector('#start')
 let h1Node = document.querySelector('h1')
 const newStop = document.querySelector('#stop')
-const slowAction = 0;
 let tN = 0
+let CountTN = 0
 newStart.addEventListener('click',()=>{
-const Timer = setInterval(()=>{
+    if(CountTN===0){
+    const Timer = setInterval(()=>{
     h1Node.innerHTML=Number(h1Node.innerHTML)+1
-   console.log( tN++);
-},1000)
+    console.log( tN++);
+    CountTN++
+    },1000)
+    newStop.addEventListener('click',()=>{
+        clearInterval(Timer)
+        CountTN=0
+    })
+    }}
+)
 
 
-newStop.addEventListener('click',()=>{
-    clearInterval(Timer)
-})
-})
 
-// const arr = [1,3,4,6,7,11,12,13]
-// const result = arr.filter(function(elem){
-//     if ( elem%1 == 0 && elem % 2 ! == 0){
-//         return true;
-//     }else{
-//         return false;
+
+const arr = [1,3,4,6,7,11,12,13]
+// arr.filter((a)=>{
+//     if(a%2!==0){
+//         console.log(a)
 //     }
-// });
-// console.log(result);
+// })
+
+const result = arr.filter(function(elem){
+    if ( elem%1 == 0 && elem % 2 !== 0){
+        return true;
+    }else{
+        return false;
+    }
+});
+console.log(result);
 
 
 // function oddNumbers (array){
